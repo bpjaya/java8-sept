@@ -30,5 +30,41 @@ Map<Character, Long> freq = s.chars()
 freq.forEach((k, v) -> {
     if(v > 1) System.out.println(k + " is duplicate, count = " + v);
 });
+
+        //in java 7 
+        import java.util.Map;
+import java.util.HashMap;
+import java.util.Set;
+
+public class Solution {
+    public static void main(String[] args) {
+        String str = "aabbbcdd";
+
+        // Explicit types
+        Map<Character, Integer> map = new HashMap<Character, Integer>();
+
+        // Count character frequencies
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            if (map.containsKey(c)) {
+                map.put(c, map.get(c) + 1);
+            } else {
+                map.put(c, 1);
+                
+            }
+        }
+
+        System.out.println("Duplicate characters:");
+
+        // Iterate using entrySet
+        Set<Map.Entry<Character, Integer>> entrySet = map.entrySet();
+        for (Map.Entry<Character, Integer> entry : entrySet) {
+            if (entry.getValue() > 1) {
+                System.out.println(entry.getKey() + " -> " + entry.getValue() + " times");
+            }
+        }
+    }
+}
+
     }
 }
