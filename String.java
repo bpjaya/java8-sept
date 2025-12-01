@@ -21,6 +21,14 @@ class Solution {
                 System.out.println(e.getKey() + " -> " + e.getValue() + " times");
             }
         }
-      
+        //java 8 
+      String s = "aabbbcdd";
+Map<Character, Long> freq = s.chars()
+    .mapToObj(c -> (char)c)
+    .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
+
+freq.forEach((k, v) -> {
+    if(v > 1) System.out.println(k + " is duplicate, count = " + v);
+});
     }
 }
